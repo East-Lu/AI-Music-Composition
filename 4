@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跳楼机 - LBI利比（时柏尘）</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        .content {
+            padding: 20px;
+        }
+        .song-details, .comments {
+            margin-bottom: 30px;
+        }
+        .lyrics {
+            white-space: pre-wrap;
+            background-color: #333;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .video-player {
+            text-align: center;
+            margin-top: 20px;
+        }
+        video {
+            width: 80%;
+            border-radius: 10px;
+        }
+        .image {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .audio-player {
+            text-align: center;
+            margin-top: 20px;
+        }
+        audio {
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>跳楼机 - LBI利比（时柏尘）</h1>
+    </header>
+
+    <div class="content">
+        <!-- Song details -->
+        <div class="song-details">
+            <h2>歌曲详情</h2>
+            <p><strong>歌曲名:</strong> 跳楼机</p>
+            <p><strong>作者:</strong> LBI利比（时柏尘）</p>
+        </div>
+
+        <!-- Insert Image -->
+        <div class="image">
+            <img src="1.jpg" alt="跳楼机 Image" width="80%">
+        </div>
+
+        <!-- Lyrics Section -->
+        <div class="lyrics">
+            <h2>歌词</h2>
+            <pre id="lyrics"></pre>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments">
+            <h2>听众评论</h2>
+            <ul id="commentList"></ul>
+        </div>
+
+        <!-- Video Section -->
+        <div class="video-player">
+            <h2>视频播放</h2>
+            <video controls>
+                <source src="2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Audio Section -->
+        <div class="audio-player">
+            <h2>音频播放</h2>
+            <audio controls>
+                <source src="3.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        // JSON data example
+        const songData = {
+            "songName": "跳楼机",
+            "author": "LBI利比（时柏尘）",
+            "lyrics": `跳楼机，
+飞速下降的感受，
+仿佛迷失在深夜的空洞，
+人群中的孤独，无法呼吸...`,
+            "comments": [
+              "你已经奔向阳光，而我却走不出雨季。",
+              "《小王子》里有一句台词说：“想要和别人制造羁绊就要承受掉眼泪的风险。”",
+            ],
+            "videoLink": "2.mp4",
+            "audioLink": "3.mp3"
+        };
+
+        // Populate song details
+        document.querySelector('h1').textContent = `${songData.songName} - ${songData.author}`;
+        document.getElementById('lyrics').textContent = songData.lyrics;
+
+        // Display comments
+        const commentList = document.getElementById('commentList');
+        songData.comments.forEach(comment => {
+            const li = document.createElement('li');
+            li.textContent = comment;
+            commentList.appendChild(li);
+        });
+
+        // Video link, replace with actual path to your video file
+        document.querySelector('video source').src = songData.videoLink;
+
+        // Audio link
+        document.querySelector('audio source').src = songData.audioLink;
+    </script>
+
+</body>
+</html>
